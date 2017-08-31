@@ -41,7 +41,7 @@ class CommandRegistry extends Registry{
     }
 
     public function is_exists($msgId) {
-        return isset($this->value[$msgId]) ? true : false;
+        return isset($this->value[$msgId]);
     }
 
     public function unsetMsgId($msgId){

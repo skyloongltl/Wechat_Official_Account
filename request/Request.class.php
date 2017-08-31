@@ -6,7 +6,7 @@ use \data\RequestRegistry;
 class Request{
     private $properties = array();
 
-    public function Request(){
+    public function __construct(){
         $this->init();
         RequestRegistry::getInstance()->setRequest($this);
     }

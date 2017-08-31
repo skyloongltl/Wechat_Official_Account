@@ -1,7 +1,26 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 17-8-31
- * Time: 上午11:08
- */
+namespace command;
+
+class ImageCommand extends Command{
+    private $picUrl;
+    private $mediaId;
+    private $msgId;
+
+    public function __construct($xml)
+    {
+        parent::__construct($xml);
+        $this->picUrl = $xml->PicUrl;
+        $this->mediaId = $xml->Mediald;
+        $this->msgId = $xml->MsgId;
+    }
+
+    public function send(){
+        $this->dealWith();
+        $sendData = \reply\Reply::imageReply($this->fromUserName, $this->toUserName, $this->mediaId);
+        echo $sendData;
+    }
+
+    public function dealWith(){
+        //TODO
+    }
+}

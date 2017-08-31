@@ -1,7 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 17-8-30
- * Time: 下午11:11
- */
+namespace data;
+abstract class Registry{
+    protected abstract function set($key, $val);
+    protected abstract function get($key);
+}

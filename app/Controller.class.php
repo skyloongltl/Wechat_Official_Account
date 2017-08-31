@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 17-8-30
- * Time: 下午11:27
- */
+namespace app;
+
+class Controller{
+    public static function run(){
+        $request = new \request\Request();
+        $handle = new \request\RequestHandle();
+        $handle->handle();
+    }
+}

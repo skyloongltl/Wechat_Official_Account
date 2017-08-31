@@ -35,6 +35,7 @@ class CommandRegistry extends Registry{
     }
 
     public function getMsgId($msgId){
+        $msgId = sprintf('%s', $msgId);
         if(isset($this->value[$msgId])){
             return $this->value[$msgId];
         }

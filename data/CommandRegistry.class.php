@@ -30,7 +30,8 @@ class CommandRegistry extends Registry{
     }
 
     public function setMsgId($msgId, $value){
-        $this->set($msgId, $value);
+        $id = sprintf('%s', $msgId);
+        $this->set($id, $value);
     }
 
     public function getMsgId($msgId){

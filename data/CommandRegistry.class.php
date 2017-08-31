@@ -42,10 +42,12 @@ class CommandRegistry extends Registry{
     }
 
     public function is_exists($msgId) {
+        $msgId = sprintf('%s', $msgId);
         return isset($this->value[$msgId]);
     }
 
     public function unsetMsgId($msgId){
+        $msgId = sprintf('%s', $msgId);
         unset($this->value[$msgId]);
     }
 }

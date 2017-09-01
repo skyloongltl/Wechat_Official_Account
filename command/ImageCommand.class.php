@@ -20,7 +20,7 @@ class ImageCommand extends Command{
         echo $sendData;
     }
 
-    public function dealWith(){
+    protected function dealWith(){
         //TODO
     }
 }

@@ -29,6 +29,7 @@ class CommandRegistry extends Registry{
         $this->value[$key] = $val;
     }
 
+    //sprintf将$xml->MsgId从对象转化为字符串,因为数组的索引不能是对象
     public function setMsgId($msgId, $value){
         $id = sprintf('%s', $msgId);
         $this->set($id, $value);

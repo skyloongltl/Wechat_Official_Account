@@ -16,5 +16,5 @@ abstract class Command{
     }
 
     public abstract function send();
-    public abstract function dealWith();
+    protected abstract function dealWith();
 }

@@ -25,10 +25,14 @@ function study($xml){
 
     if($content == '大哥来学习了'){
         $redis->set('is_study', 'true');
+        echo '';
+        exit(0);
     }
 
     if($content == '大哥下课啦'){
         $redis->set('is_study', 'false');
+        echo '';
+        exit(0);
     }
 }
 

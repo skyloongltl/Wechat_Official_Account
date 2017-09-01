@@ -14,7 +14,7 @@ function study($xml){
         if($redis->get('action') == 'original') {
             echo 'success';
             $is_exists = \database\User::getOriginalId($content);
-            if($is_exists != \errorCode::$INSERTERROR || $is_exists != \errorCode::$EMPTYSELECT){
+            if($is_exists != \errorCode::$EMPTYSELECT){
                 $redis->set('oid', $is_exists);
                 $redis->set('action', 'reply');
                 exit;

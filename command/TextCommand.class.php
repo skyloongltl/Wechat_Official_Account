@@ -23,14 +23,20 @@ class TextCommand extends Command{
     protected function dealWith()
     {
         $oid = \database\User::getOriginalId($this->content);
-        if($oid === \errorCode::$EMPTYSELECT || $oid === \errorCode::$SELECTERROR){
+        if($oid === \errorCode::$SELECTERROR){
             echo '';
             exit(0);
         }
+        if($oid === \errorCode::$EMPTYSELECT){
+            return;
+        }
         $reply = \database\User::getReply($oid);
-        if($reply === \errorCode::$SELECTERROR || $reply === \errorCode::$EMPTYSELECT){
+        if($reply === \errorCode::$SELECTERROR){
             echo '';
             exit(0);
+        }
+        if($reply === \errorCode::$EMPTYSELECT){
+            return;
         }
         $this->content = $reply;
     }

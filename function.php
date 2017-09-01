@@ -13,6 +13,10 @@ function study($xml){
     if($redis->get('is_study') == 'true'){
         if($redis->get('action') == 'original') {
             echo 'success';
+            $is_exists = \database\User::getOriginalId($content);
+            if($is_exists !== \errorCode::$INSERTERROR || $is_exists !== \errorCode::$EMPTYSELECT){
+                exit;
+            }
             $o_id = \database\User::insertOriginal($content);
             if($o_id == \errorCode::$INSERTERROR){
                 return \errorCode::$INSERTERROR;

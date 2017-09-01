@@ -16,7 +16,8 @@ class RequestHandle{
         switch ($type){
             case 'text':
                 $textCommand = $this->idIsExists('Text', $xml);
-                call_user_func_array('study', array($xml));
+                study($xml);
+                //call_user_func_array('study', array($xml));
                 $textCommand->send();
                 \data\CommandRegistry::getInstance()->unsetMsgId($xml->MsgId);
                 break;

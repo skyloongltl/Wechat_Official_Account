@@ -10,7 +10,7 @@ class User
             return \errorCode::$STRTOOLONG;
         }
         $pdo = \database\mysql\Database::getInstance()->pdo;
-        $stmt = $pdo->prepare('REPLACE INTO original (statement) VALUES (?)');
+        $stmt = $pdo->prepare('REPLACE INTO original (original) VALUES (?)');
         $result = $stmt->execute(array($str));
         if ($result === false) {
             return \errorCode::$INSERTERROR;

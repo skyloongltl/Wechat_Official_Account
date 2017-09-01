@@ -3,6 +3,12 @@ function study($xml){
     $redis = \database\predis::getInstance();
     $content = input((string)$xml->Content);
 
+    if($content == '大哥下课啦'){
+        $redis->set('is_study', 'false');
+        echo 'success';
+        exit;
+    }
+
     if($redis->get('is_study') === 'true'){
         if($redis->get('action') === 'original') {
             $o_id = \database\User::insertOriginal($content);
@@ -26,12 +32,6 @@ function study($xml){
 
     if($content == '大哥来学习了'){
         $redis->set('is_study', 'true');
-        echo 'success';
-        exit;
-    }
-
-    if($content == '大哥下课啦'){
-        $redis->set('is_study', 'false');
         echo 'success';
         exit;
     }

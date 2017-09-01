@@ -35,7 +35,7 @@ class Reply{
 <FromUserName><![CDATA[%s]]></FromUserName>
 <CreateTime>%s</CreateTime>
 <MsgType><![CDATA[text]]></MsgType>
-<Content><![CDATA[%s]]></Content>
+<Content><![CDATA[fuckfuckfuckfuck%s]]></Content>
 </xml>";
         $reply = sprintf($xml, $toUserName, $fromUserName, (string)time(), $content);
         return $reply;

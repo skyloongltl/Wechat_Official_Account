@@ -21,19 +21,19 @@ function study($xml){
             $redis->set('action', 'original');
         }
         echo 'success';
-        exit(0);
+        exit;
     }
 
     if($content == '大哥来学习了'){
         $redis->set('is_study', 'true');
         echo 'success';
-        exit(0);
+        exit;
     }
 
     if($content == '大哥下课啦'){
         $redis->set('is_study', 'false');
         echo 'success';
-        exit(0);
+        exit;
     }
 }
 

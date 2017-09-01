@@ -34,7 +34,7 @@ class User
     public static function getOriginalId($content){
         $pdo = \database\mysql\Database::getInstance()->pdo;
         $stmt = $pdo->prepare('SELECT id FROM original WHERE original=?');
-        $result = $stmt->excute($content);
+        $result = $stmt->execute($content);
         if($result === false){
             return \errorCode::$SELECTERROR;
         }
@@ -54,7 +54,7 @@ class User
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
         $offset = $result['offset'];
         $stmt = $pdo->prepare('SELECT reply FROM `reply` where oid=? LIMIT ?, 1;');
-        $result = $stmt->excute(array($strId, $offset));
+        $result = $stmt->execute(array($strId, $offset));
         if($result === false){
             return \errorCode::$SELECTERROR;
         }

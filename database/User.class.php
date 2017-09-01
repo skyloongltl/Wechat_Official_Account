@@ -11,7 +11,7 @@ class User
         }
         $pdo = \database\mysql\Database::getInstance()->pdo;
         $stmt = $pdo->prepare('REPLACE INTO original (statement) VALUES (?)');
-        $result = $stmt->execute($str);
+        $result = $stmt->execute(array($str));
         if ($result === false) {
             return \errorCode::$INSERTERROR;
         }
@@ -34,7 +34,7 @@ class User
     public static function getOriginalId($content){
         $pdo = \database\mysql\Database::getInstance()->pdo;
         $stmt = $pdo->prepare('SELECT id FROM original WHERE original=?');
-        $result = $stmt->execute($content);
+        $result = $stmt->execute(array($content));
         if($result === false){
             return \errorCode::$SELECTERROR;
         }
@@ -47,7 +47,7 @@ class User
     {
         $pdo = \database\mysql\Database::getInstance()->pdo;
         $stmt = $pdo->prepare('SELECT FLOOR(RAND() * COUNT(*)) AS `offset` FROM reply where oid=?');
-        $result = $stmt->execute($strId);
+        $result = $stmt->execute(array($strId));
         if($result === false){
             return \errorCode::$SELECTERROR;
         }

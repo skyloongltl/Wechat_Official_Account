@@ -5,6 +5,7 @@ function study($xml){
 
     if($content == '大哥下课啦'){
         $redis->set('is_study', 'false');
+        $redis->set('action', 'close');
         echo 'success';
         exit;
     }
@@ -32,6 +33,7 @@ function study($xml){
 
     if($content == '大哥来学习了'){
         $redis->set('is_study', 'true');
+        $redis->set('action', 'original');
         echo 'success';
         exit;
     }

@@ -19,6 +19,7 @@ function study($xml){
             }
             $redis->set('oid', $o_id);
             $redis->set('action', 'reply');
+            exit;
         }
         if($redis->get('action') == 'reply') {
             echo 'success';
@@ -28,8 +29,8 @@ function study($xml){
                 return \errorCode::$INSERTERROR;
             }
             $redis->set('action', 'original');
+            exit;
         }
-        exit;
     }
 
     if($content == '大哥来学习了'){

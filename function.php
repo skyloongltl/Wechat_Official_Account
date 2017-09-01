@@ -1,7 +1,7 @@
 <?php
 function study($xml){
     $redis = \database\predis::getInstance();
-    $content = input((string)$xml->content);
+    $content = input((string)$xml->Content);
 
     if($redis->get('is_study') === 'true'){
         if($redis->get('action') === 'original') {

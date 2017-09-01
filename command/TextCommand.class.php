@@ -24,7 +24,7 @@ class TextCommand extends Command{
     {
         $oid = \database\User::getOriginalId($this->content);
         if($oid === \errorCode::$SELECTERROR){
-            echo '';
+            echo 'success';
             exit(0);
         }
         if($oid === \errorCode::$EMPTYSELECT){
@@ -32,7 +32,7 @@ class TextCommand extends Command{
         }
         $reply = \database\User::getReply($oid);
         if($reply === \errorCode::$SELECTERROR){
-            echo '';
+            echo 'success';
             exit(0);
         }
         if($reply === \errorCode::$EMPTYSELECT){

@@ -54,7 +54,9 @@ class User
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
         $offset = $result['offset'];
         $stmt = $pdo->prepare('SELECT reply FROM `reply` where oid=? LIMIT ?,1;');
-        $result = $stmt->execute(array($strId, (int)$offset));
+        $stmt->bindValue(1, $strId, \PDO::PARAM_INT);
+        $stmt->bindValue(2, $offset, \PDO::PARAM_INT);
+        $result = $stmt->execute();
         if($result === false){
             return \errorCode::$SELECTERROR;
         }
